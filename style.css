@@ -12,18 +12,21 @@ body {
 
 body {
   font-family: 'Open Sans', sans-serif;
+  transition: background-color 0.75s ease;
 }
 
 .swiper {
   width: 100%;
   height: 100%;
-
-  background-color: rgb(255, 115, 29, 50%);
 }
 
 .swiper-slide {
-  font-size: 16px;
-  color: #000;
+  position: relative;
+  color: #fff;
+  opacity: 0.5;
+  font-size: 14px;
+
+  padding: 0 20%;
 
   text-align: center;
 
@@ -34,16 +37,47 @@ body {
   transform: scale(1);
   will-change: transform;
 
-  transition: transform 1s ease, background-color 0.75s ease, color 0.25s ease;
+  transition: transform 1s ease, background-color 0.75s ease, color 0.25s ease, opacity 0.25s ease;
+}
+
+.slide-ill {
+  width: 10vw;
+  position: absolute;
+
+  transform: scale(0);
+
+  transition: transform 0.75s ease;
+  will-change: transform;
+}
+
+.slide-left {
+  left: 20%;
+}
+
+.slide-right {
+  right: 20%;
 }
 
 .swiper-slide.swiper-slide-next {
-  transform: scale(1.4);
+  transform: scale(1.3);
   color: #fff;
-
-  background-color: rgb(255, 115, 29, 100%);
+  opacity: 1;
 
   animation: fontWeight 1000ms ease both;
+}
+
+.swiper-slide.swiper-slide-next .slide-ill {
+  transform: scale(1);
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-slide {
+    font-size: 12px;
+  }
+
+  .slide-ill {
+    top: -10%;
+  }
 }
 
 @keyframes fontWeight {
